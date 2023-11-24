@@ -1,20 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.metrics import mean_squared_error
-from sklearn import metrics
-import seaborn as sns
-from sklearn import preprocessing
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.metrics import accuracy_score
-import lazypredict
-from sklearn.linear_model import LogisticRegression
-from sklearn import metrics
-import pickle
 
 def main():
     st.title("APPLICATION DE DETECTION DE CHURN-ENTREPRISE DE TELEPHONIE MOBILE")
