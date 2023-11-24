@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import pickle
+
 
 def main():
     st.title("APPLICATION DE DETECTION DE CHURN-ENTREPRISE DE TELEPHONIE MOBILE")
@@ -25,7 +27,7 @@ def main():
     Freq = st.sidebar.number_input("Choisir la fréquence de rechargement mensuelle du client",
             0,100, step=1)
     Anc = st.sidebar.number_input("Choisir l'Anciennété sur le reséau (en mois) du client", 1,100, step=2)
-    loaded_model = pickle.load(open('trained_model.sav','rb'))
+    loaded_model = pickle.load(open("trained_model.sav",'rb'))
 
     def predict(input_data):
         input_data = (Freq, Anc)
