@@ -50,9 +50,5 @@ def main():
 
 st.sidebar.write("Copyright (Jean Jacques Gogahi)")
 
-
-
-
-
 if __name__=='__main__':
     main()
