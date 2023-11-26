@@ -1,30 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.express as px
-import matplotlib.pyplot as plt
-#import pandas_profiling as pp
-#from ydata import ProfileReport
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.metrics import mean_squared_error
-from sklearn import metrics
-import seaborn as sns
-from sklearn import preprocessing
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.metrics import accuracy_score
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import KFold,GroupKFold
-from sklearn import svm
-from sklearn.svm import SVC
-import lazypredict
-from sklearn.linear_model import LogisticRegression
-from sklearn import metrics
 import pickle
 
 def main():
