@@ -18,7 +18,7 @@ def main():
     #df = load_data()
     #df_sample = df.sample(100)
     # Creation des variables
-    #Variables = st.sidebar.write(
+    Variables = st.sidebar.write(
         "PARAMETRES DE PREDICTION",
     )
 
