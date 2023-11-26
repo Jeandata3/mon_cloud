@@ -3,3 +3,4 @@ pandas
 streamlit
 pickle-mixin
 scikit-learn
+plotly
