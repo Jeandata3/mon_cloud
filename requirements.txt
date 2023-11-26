@@ -4,3 +4,4 @@ streamlit
 pickle-mixin
 scikit-learn
 plotly
+lightgbm
