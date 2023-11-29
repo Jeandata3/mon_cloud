@@ -7,4 +7,4 @@ plotly
 lightgbm
 nltk
 nltk.download
-nltk.download('stopwords')
+
