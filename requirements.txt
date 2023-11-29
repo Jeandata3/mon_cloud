@@ -5,3 +5,5 @@ pickle-mixin
 scikit-learn
 plotly
 lightgbm
+nltk
+string
