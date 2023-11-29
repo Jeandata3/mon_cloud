@@ -6,6 +6,9 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import string
 import streamlit as st
+import streamlit as st
+nltk.download("stopwords")
+nltk.download('wordnet')
 
 st.set_page_config(page_title="🤗ChatBot")
 
