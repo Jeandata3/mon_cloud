@@ -12,41 +12,77 @@ st.sidebar.info(
     "La tolérance est le seuil de la reconnaissance faciale. Plus la tolérance est faible, plus la reconnaissance faciale est stricte. Plus la tolérance est élevée, plus la reconnaissance faciale est faible..")
 COULEUR = st.sidebar.color_picker("Couleur du rectangle",'#F90034')
 # Dictionnaire pour stocker les noms et les images des individus connus
+st.title('PLATEFORME DE DETECTION DE VISAGE')
+
+st.header("Bienvenue sur notre plateforme de detection de visage !")
+
+
+# Charger le classificateur en cascade de Haar pour la détection des visages
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+# Dictionnaire pour stocker les noms et les images des individus connus
 known_faces = {}
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+
 def detect_faces():
-    # Initialize the webcam
-    cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+    # Initialiser la webcam
+    cap = cv2.VideoCapture(1)
     while True:
-        # Read the frames from the webcam
+        # Lire les images de la webcam
         ret, frame = cap.read()
-        # Convert the frames to grayscale
-        # image = frame[:, :, ::-1]
-        # image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        # frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
-        # gray = cv2.cvtColor(frame, cv2.COLOR_BGR5552GRAY)
-        # plt.imshow(gray)
-        # Detect the faces using the face cascade classifier
-        faces = face_cascade.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=3)
-        # faces = face_cascade.detectMultiScale(frame,scaleFactor=1.3, minNeighbors=5)
-        # Draw rectangles around the detected faces
+        # Convertir les images en niveaux de gris
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        # Détecter les visages en utilisant le classificateur en cascade de visage
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
+        # Dessiner des rectangles autour des visages détectés et afficher les noms
         for (x, y, w, h) in faces:
-            cv2.rectangle(frame, (x, y), (x + w, y + h), (COULEUR), 2)
-        # Display the frames
-        cv2.imshow('window', frame)
-        if 0xFF != ord('q'):
-            continue
-        # Exit the loop when 'q' is pressed
-        break
-    # Release the webcam and close all windows
+            cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+
+            # Effectuer la reconnaissance des visages
+            face_roi = gray[y:y + h, x:x + w]
+            face_roi = cv2.resize(face_roi, (224, 224))
+            label = recognize_face(face_roi)
+
+            # Afficher le nom à côté du rectangle de détection
+            cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+
+        # Afficher les images
+        cv2.imshow('Détection de visage avec l\'algorithme Viola-Jones', frame)
+        # Quitter la boucle lorsque la touche 'q' est pressée
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    # Libérer la webcam et fermer toutes les fenêtres
     cap.release()
     cv2.destroyAllWindows()
-def app():
-    st.title("Face Detection using Viola-Jones Algorithm")
-    st.write("Press the button below to start detecting faces from your webcam")
-    # Add a button to start detecting faces
-    if st.button("Detect Faces"):
-        # Call the detect_faces function
-        detect_faces()
-if __name__ == "__main__":
-    app()
+
+
+def recognize_face(face):
+    # Effectuer la reconnaissance du visage
+    # Ici, vous pouvez utiliser votre modèle mis à jour pour reconnaître le visage
+
+    # Placeholder pour l'exemple
+    return "Individu"
+
+
+def capture_and_label():
+    # Initialiser la webcam
+    cap = cv2.VideoCapture(0)
+    while True:
+        # Lire les images de la webcam
+        ret, frame = cap.read()
+        # Afficher les images
+        cv2.imshow('Capture et labélisation', frame)
+        # Quitter la boucle lorsque la touche 'q' est pressée
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    # Arrêter la capture vidéo
+    cap.release()
+    cv2.destroyAllWindows()
+
+    # Demander le nom de l'individu
+    name = st.text_input("Nom de l'individu")
+
+    # Enregistrer l'image capturée avec le nom de l'individu dans le dictionnaire
+    known_faces[name] = frame
+cap.release()
+cv.destroyAllWindows()
