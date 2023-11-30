@@ -33,7 +33,7 @@ def detect_faces():
         for (x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (COULEUR), 2)
         # Display the frames
-        cv2.imshow('Détection de visage avec l\'algorithme Viola-Jones', frame)
+        cv2.imshow('window', frame)
         if 0xFF != ord('q'):
             continue
         # Exit the loop when 'q' is pressed
