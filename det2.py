@@ -3,6 +3,7 @@ import streamlit as st
 from PIL import Image
 from io import BytesIO
 import matplotlib as plt
+import numpy as np
 st.sidebar.title("Parametres")
 
 # Put slide to adjust tolerance
@@ -21,8 +22,8 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 
 # Dictionnaire pour stocker les noms et les images des individus connus
 known_faces = {}
-
-
+M = np.float32([[0.5, 0, 0], [0, 0.5, 0]])
+size = (640, 360)
 def detect_faces():
     # Initialiser la webcam
     cap = cv2.VideoCapture(0)
@@ -31,6 +32,7 @@ def detect_faces():
         ret, frame = cap.read()
         # Convertir les images en niveaux de gris
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray_s = cv2.warpAffine(gray, M, size)        
         # Détecter les visages en utilisant le classificateur en cascade de visage
         faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
         # Dessiner des rectangles autour des visages détectés et afficher les noms
@@ -46,7 +48,7 @@ def detect_faces():
             cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
         # Afficher les images
-        cv2.imshow('Détection de visage avec l\'algorithme Viola-Jones', frame)
+        cv2.imshow('Détection de visage avec l\'algorithme Viola-Jones', gray_s)
         # Quitter la boucle lorsque la touche 'q' est pressée
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
