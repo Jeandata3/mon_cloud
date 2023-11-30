@@ -31,8 +31,8 @@ def detect_faces():
         # Lire les images de la webcam
         ret, frame = cap.read()
         # Convertir les images en niveaux de gris
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        gray_s = cv2.warpAffine(gray, M, size)        
+        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        #gray_s = cv2.warpAffine(gray, M, size)        
         # Détecter les visages en utilisant le classificateur en cascade de visage
         faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
         # Dessiner des rectangles autour des visages détectés et afficher les noms
@@ -48,7 +48,7 @@ def detect_faces():
             cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
         # Afficher les images
-        cv2.imshow('Détection de visage avec l\'algorithme Viola-Jones', gray_s)
+        cv2.imshow('Détection de visage avec l\'algorithme Viola-Jones', frame)
         # Quitter la boucle lorsque la touche 'q' est pressée
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
