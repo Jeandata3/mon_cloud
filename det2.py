@@ -27,7 +27,7 @@ def detect_faces():
         # gray = cv2.cvtColor(frame, cv2.COLOR_BGR5552GRAY)
         # plt.imshow(gray)
         # Detect the faces using the face cascade classifier
-        faces = face_cascade.detectMultiScale(frame, scaleFactor=a, minNeighbors=b)
+        faces = face_cascade.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=3)
         # faces = face_cascade.detectMultiScale(frame,scaleFactor=1.3, minNeighbors=5)
         # Draw rectangles around the detected faces
         for (x, y, w, h) in faces:
