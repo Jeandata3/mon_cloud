@@ -2,11 +2,7 @@ import cv2
 import streamlit as st
 from PIL import Image
 from io import BytesIO
-import IPython.display as ipd
 import matplotlib as plt
-import face_recognition as frg
-import yaml
-#from utils import recognize, build_dataset
 st.sidebar.title("Parametres")
 
 # Put slide to adjust tolerance
