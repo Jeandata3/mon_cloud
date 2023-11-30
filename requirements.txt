@@ -7,3 +7,4 @@ plotly
 lightgbm
 nltk
 opencv-python-headless==4.5.1.48
+matplotlib
