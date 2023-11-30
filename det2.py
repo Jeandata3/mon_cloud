@@ -11,7 +11,6 @@ b = st.sidebar.slider(" minNeighbors", 5, 20, 5, 5)
 st.sidebar.info(
     "La tolérance est le seuil de la reconnaissance faciale. Plus la tolérance est faible, plus la reconnaissance faciale est stricte. Plus la tolérance est élevée, plus la reconnaissance faciale est faible..")
 COULEUR = st.sidebar.color_picker("Couleur du rectangle",'#F90034')
-# Dictionnaire pour stocker les noms et les images des individus connus
 st.title('PLATEFORME DE DETECTION DE VISAGE')
 
 st.header("Bienvenue sur notre plateforme de detection de visage !")
@@ -26,7 +25,7 @@ known_faces = {}
 
 def detect_faces():
     # Initialiser la webcam
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
     while True:
         # Lire les images de la webcam
         ret, frame = cap.read()
@@ -61,7 +60,7 @@ def recognize_face(face):
     # Ici, vous pouvez utiliser votre modèle mis à jour pour reconnaître le visage
 
     # Placeholder pour l'exemple
-    return "Individu"
+    return "individu"
 
 
 def capture_and_label():
@@ -84,5 +83,22 @@ def capture_and_label():
 
     # Enregistrer l'image capturée avec le nom de l'individu dans le dictionnaire
     known_faces[name] = frame
-cap.release()
-cv.destroyAllWindows()
+
+
+def app():
+    st.title("Détection et reconnaissance de visage")
+    st.write("Appuyez sur le bouton ci-dessous pour détecter les visages depuis votre webcam")
+    # Ajouter un bouton pour détecter les visages
+    if st.button("Détecter les visages"):
+        # Appeler la fonction detect_faces
+        detect_faces()
+
+    st.write("Appuyez sur le bouton ci-dessous pour capturer et labéliser un nouvel individu")
+    # Ajouter un bouton pour capturer et labéliser un nouvel individu
+    if st.button("Capturer et labéliser"):
+        # Appeler la fonction capture_and_label
+        capture_and_label()
+
+
+if __name__ == "__main__":
+    app()
