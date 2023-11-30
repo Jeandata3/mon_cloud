@@ -40,7 +40,7 @@ def detect_faces():
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
             # Effectuer la reconnaissance des visages
-            face_roi = gray[y:y + h, x:x + w]
+            #face_roi = gray[y:y + h, x:x + w]
             face_roi = cv2.resize(face_roi, (224, 224))
             label = recognize_face(face_roi)
 
