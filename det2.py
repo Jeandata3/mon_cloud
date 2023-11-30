@@ -13,7 +13,7 @@ st.sidebar.info(
 COULEUR = st.sidebar.color_picker("Couleur du rectangle",'#F90034')
 # Dictionnaire pour stocker les noms et les images des individus connus
 known_faces = {}
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default .xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 def detect_faces():
     # Initialize the webcam
     cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
