@@ -19,7 +19,7 @@ def detect_faces():
     cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
     while True:
         # Read the frames from the webcam
-        frame = cv2.imread(r".\images\cap.jpg")
+        ret, frame = cap.read()
         # Convert the frames to grayscale
         # image = frame[:, :, ::-1]
         # image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
