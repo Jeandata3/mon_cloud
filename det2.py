@@ -63,10 +63,10 @@ cap.release()
 cv2.destroyAllWindows()
 
 # Demander le nom de l'individu
-    name = st.text_input("Nom de l'individu")
+name = st.text_input("Nom de l'individu")
 
     # Enregistrer l'image capturée avec le nom de l'individu dans le dictionnaire
-    known_faces[name] = frame
+known_faces[name] = frame
 
 def capture_and_label():
     # Initialiser la webcam
