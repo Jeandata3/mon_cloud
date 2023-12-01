@@ -8,7 +8,7 @@ scaleFactor = st.sidebar.slider("scaleFactor", 0.0, 1.1 ,3.0, 0.01)
 minNeighbors = st.sidebar.slider(" minNeighbors", 1, 3, 10, 1)
 Selection_couleur = st.sidebar.color_picker("Couleur du rectangle",'#F90034')
 st.sidebar.info(
-    "📑Ceci est une application de detection faciale. Pour une meilleure utilsiation veuilez ajuster les paramètres ci-dessus.")
+    "📑Ceci est une application de detection faciale. Pour une meilleure utilisation veuillez ajuster les paramètres ci-dessus.")
 
 
 # Charger le classificateur en cascade de Haar pour la détection des visages
