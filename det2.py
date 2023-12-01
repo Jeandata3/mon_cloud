@@ -30,8 +30,9 @@ def detect_faces():
         # Lire les images de la webcam
         ret, frame = cap.read()
         # Convertir les images en niveaux de gris
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        # Détecter les visages en utilisant le classificateur en cascade de visage
+        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+               # Détecter les visages en utilisant le classificateur en cascade de visage
         faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
         # Dessiner des rectangles autour des visages détectés et afficher les noms
         for (x, y, w, h) in faces:
