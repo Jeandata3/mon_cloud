@@ -9,7 +9,7 @@ scaleFactor = st.sidebar.slider("scaleFactor", 0.0, 1.1 ,3.0, 0.01)
 minNeighbors = st.sidebar.slider(" minNeighbors", 1, 3, 10, 1)
 Selection_couleur = st.sidebar.color_picker("Couleur du rectangle",'#F90034')
 st.sidebar.info(
-    "📑La tolérance est le seuil de la reconnaissance faciale. Plus la tolérance est faible, plus la reconnaissance faciale est stricte. Plus la tolérance est élevée, plus la reconnaissance faciale est faible..")
+    "📑Ceci est une application de detection faciale. Pour une meilleure utilsiation veuilez ajuster les paramètres ci-dessus.")
 
 
 # Charger le classificateur en cascade de Haar pour la détection des visages
@@ -30,8 +30,8 @@ def detect_faces():
         # Lire les images de la webcam
         ret, frame = cap.read()
         # Convertir les images en niveaux de gris
-        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
                # Détecter les visages en utilisant le classificateur en cascade de visage
         faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
         # Dessiner des rectangles autour des visages détectés et afficher les noms
