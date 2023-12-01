@@ -4,7 +4,6 @@ import streamlit as st
 st.title('PLATEFORME DE DETECTION DE VISAGE')
 st.header("🤗😎☺️Bienvenue sur notre plateforme de detection de visage !")
 st.sidebar.title("🛠️⚙️Paramètres")
-# Put slide to adjust tolerance
 scaleFactor = st.sidebar.slider("scaleFactor", 0.0, 1.1 ,3.0, 0.01)
 minNeighbors = st.sidebar.slider(" minNeighbors", 1, 3, 10, 1)
 Selection_couleur = st.sidebar.color_picker("Couleur du rectangle",'#F90034')
@@ -30,9 +29,8 @@ def detect_faces():
         # Lire les images de la webcam
         ret, frame = cap.read()
         # Convertir les images en niveaux de gris
-        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-               # Détecter les visages en utilisant le classificateur en cascade de visage
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        # Détecter les visages en utilisant le classificateur en cascade de visage
         faces = face_cascade.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=3)
         # Dessiner des rectangles autour des visages détectés et afficher les noms
         for (x, y, w, h) in faces:
