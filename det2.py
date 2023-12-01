@@ -73,7 +73,7 @@ def capture_and_label():
         # Afficher les images
         cv2.imshow('Capture et labélisation', frame)
         # Quitter la boucle lorsque la touche 'q' est pressée
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(0) & 0xFF == ord('q'):
             break
     # Arrêter la capture vidéo
     cap.release()
