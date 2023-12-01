@@ -47,7 +47,7 @@ while True:
     # Capture frame-by-frame
     ret, frame = cap.read()
 
-    gray = cv.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     gray_s = cv2.warpAffine(gray, M, size)
 
     detect()
