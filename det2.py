@@ -6,7 +6,8 @@ import matplotlib as plt
 import numpy as np
 import cv2 
 import time
-st.sidebar.title("Parametres")path = 'haarcascade_frontalface_default.xml'
+st.sidebar.title("Parametres")
+path = 'haarcascade_frontalface_default.xml'
 face_detector = cv2.CascadeClassifier(path)
 
 #a = st.sidebar.slider("scaleFactor", 0.0, 1.0, 0.1, 0.01)
