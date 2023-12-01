@@ -30,16 +30,16 @@ def detect_faces():
         # Lire les images de la webcam
         ret, frame = cap.read()
         # Convertir les images en niveaux de gris
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
                # Détecter les visages en utilisant le classificateur en cascade de visage
-        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
+        faces = face_cascade.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=3)
         # Dessiner des rectangles autour des visages détectés et afficher les noms
         for (x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0),color, 2)
 
             # Effectuer la reconnaissance des visages
-            face_roi = gray[y:y + h, x:x + w]
+            face_roi = frame[y:y + h, x:x + w]
             face_roi = cv2.resize(face_roi, (224, 224))
             label = recognize_face(face_roi)
 
@@ -61,7 +61,7 @@ def recognize_face(face):
     # Ici, vous pouvez utiliser votre modèle mis à jour pour reconnaître le visage
 
     # Placeholder pour l'exemple
-    return "Tresor"
+    return "Mon Nom"
 
 
 def capture_and_label():
