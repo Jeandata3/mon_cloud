@@ -13,7 +13,7 @@ face_detector = cv2.CascadeClassifier(path)
 #a = st.sidebar.slider("scaleFactor", 0.0, 1.0, 0.1, 0.01)
 #b = st.sidebar.slider(" minNeighbors", 5, 20, 5, 5)
 #st.sidebar.info(
-    "La tolérance est le seuil de la reconnaissance faciale. Plus la tolérance est faible, plus la reconnaissance faciale est stricte. Plus la tolérance est élevée, plus la reconnaissance faciale est faible..")
+    #"La tolérance est le seuil de la reconnaissance faciale. Plus la tolérance est faible, plus la reconnaissance faciale est stricte. Plus la tolérance est élevée, plus la reconnaissance faciale est faible..")
 #COULEUR = st.sidebar.color_picker("Couleur du rectangle",'#F90034')
 
 
