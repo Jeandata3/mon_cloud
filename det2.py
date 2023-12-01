@@ -36,7 +36,7 @@ def detect():
     for rect in rects:
         cv.rectangle(gray_s, rect, 255, 2)
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 t0 = time.time()
 
 M = np.float32([[0.5, 0, 0], [0, 0.5, 0]])
