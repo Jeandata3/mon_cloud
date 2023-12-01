@@ -47,7 +47,7 @@ def detect_faces():
             cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
         # Afficher les images
-        cv2.imshow('Détection de visage avec l\'algorithme Viola-Jones', frame)
+        cv2.imshow('webcam', frame)
         # Quitter la boucle lorsque la touche 'q' est pressée
         if cv2.waitKey(0) & 0xFF == ord('q'):
             break
