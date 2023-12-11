@@ -22,13 +22,13 @@ def main():
 
 
     # fonction d'importation des données
-    @st.cache_data(persist=True)
-    def load_data():
-        data = pd.read_csv('diabetes2.csv')
-        return data
+    #@st.cache_data(persist=True)
+    #def load_data():
+        #data = pd.read_csv('diabetes2.csv')
+        #return data
     # Affichage de la table de données
-    df = load_data()
-    df_sample = df.sample(100)
+    #df = load_data()
+    #df_sample = df.sample(100)
     # Creation des variables
     Variables = st.sidebar.write(
         "PARAMETRES DE PREDICTION",
