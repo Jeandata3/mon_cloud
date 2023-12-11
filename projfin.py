@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from sklearn import svm
 from sklearn.svm import SVC
-import lazypredict
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 import pickle
