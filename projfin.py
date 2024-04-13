@@ -43,7 +43,7 @@ def main():
     BMI = st.sidebar.number_input("BMI: IMC- indice de masse corporelle", 0.0, 1000.1, 0.1, 0.01)
     DiabetesPedigreeFunction = st.sidebar.number_input("DiabetesPedigreeFunction: Indice de prédisposition au diabète établi en fonction des informations sur la famille.", 0.0, 1000.1, 0.1, 0.01)
     Age = st.sidebar.number_input("Age : Désigne l’age de l’individu", 0,100, step=1)
-    loaded_model = pickle.load(open('diabete_trained_modelfin.sav','rb'))
+    loaded_model = pickle.load(open('diabete_trained_modelfin2.sav','rb'))
 
     def predict(input_data1):
         # prediction avec de nouvelles données
