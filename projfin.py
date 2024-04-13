@@ -58,13 +58,13 @@ def main():
 
         if (prediction[0] == 1):
             st.write(
-                "📝La probabilité que cette personne contracte le diabète est très élévé. Veuillez confirmer cette analyse par un avis medicale suivie d'une prise en charge.")
+                "📝La probabilité que cette personne développe le diabète est très élévé. Veuillez confirmer cette analyse par un avis medicale suivie d'une prise en charge.")
             st.date_input("Date d'analyse")
 
 
         else:
             st.write(
-                "📝La probabilité que cette personne contracte le diabète est relative faible. Veuillez toutefois lui conseiller la pratique regulière du sport et une alimentation saine.")
+                "📝La probabilité que cette personne développe le diabète est relative faible. Veuillez toutefois lui conseiller la pratique regulière du sport et une alimentation saine.")
             st.date_input("Date d'analyse")
 
 
